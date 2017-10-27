@@ -38,8 +38,32 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  byme-black: rgba(0, 0, 0, 1),
+  byme-black-dark: rgba(0, 0, 0, .87),
+  byme-black-disabled: rgba(0, 0, 0, .5),
+  byme-black-light: rgba(0, 0, 0, .7),
+  byme-black-opacity: rgba(0, 0, 0, .3),
+  byme-black-thin: rgba(0, 0, 0, .12),
+  byme-blue:  rgba(33, 150, 243, 1),
+  byme-blue-disabled: rgba(33, 150, 243, .5),
+  byme-blue-light: rgba(33, 150, 243, .7),
+  byme-blue-opacity: rgba(33, 150, 243, .3),
+  byme-error: rgba(213, 0, 0, 1),
+  byme-pink:  rgba(255, 64, 129, 1),
+  byme-pink-disabled:  rgba(255, 64, 129, .5),
+  byme-pink-light:  rgba(255, 64, 129, .7),
+  byme-pink-opacity:  rgba(255, 64, 129, .3),
+  byme-white: rgba(255, 255, 255, 1),
+  byme-white-dark: rgba(255, 255, 255, .85),
+  byme-white-disabled: rgba(255, 255, 255, .5),
+  byme-white-light: rgba(255, 255, 255, .7),
+  byme-white-opacity: rgba(255, 255, 255, .3),
 );
+
+:root {
+  --animation-time: .3s;
+}
 
 
 // App iOS Variables

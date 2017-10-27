@@ -1,0 +1,80 @@
+$elements: 3;
+byme-fab {
+    .float-button {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        background: color($colors, byme-blue);
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 100;
+        transition: transform var(--animation-time);
+        cursor: pointer;
+        &.pulsed {
+            transform: rotate(45deg);
+            background: color($colors, byme-blue);
+        }
+        &::before,
+        &::after {
+            position: absolute;
+            width: 40%;
+            height: 4%;
+            content: '';
+            top: 49%;
+            left: 30%;
+            background: #fff;
+        }
+        &::after {
+            transform: rotate(90deg);
+        }
+    }
+    .circular-menu {
+        position: absolute;
+        width: 32rem;
+        height: 32rem;
+        background: color($colors, byme-blue-opacity);
+        bottom: -12rem;
+        right: -12rem;
+        border-radius: 50%;
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+        transition: all var(--animation-time);
+        z-index: 50;
+        &.expand {
+            transform: scale(1) rotate(-45deg);
+            opacity: 1;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 3rem;
+            li {
+                position: absolute;
+                width: 4rem;
+                top: 4rem;
+                left: calc(50% - 2rem);
+                transform-origin: center 12rem;
+                text-align: center;
+                a {
+                    text-decoration: none;
+                    display: block;
+                    color: #fff;
+                    i {
+                        font-size: 36px;
+                    }
+                }
+            }
+        }
+    }
+    @for $i from 1 through $elements {
+        .circular-menu li:nth-child(#{$i}) {
+            $rotation: (90 / ($elements - 1)) * ($i - 1);
+            transform: rotate(-#{$rotation}deg);
+            a {
+                transform: rotate(#{$rotation}deg)
+            }
+        }
+    }
+}
