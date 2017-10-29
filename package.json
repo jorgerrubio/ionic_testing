@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.0.1",
+    "mathsass": "^0.10.1",
     "typescript": "2.3.4"
   },
   "description": "An Ionic project"

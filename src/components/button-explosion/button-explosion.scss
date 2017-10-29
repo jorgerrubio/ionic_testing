@@ -1,0 +1,51 @@
+button-explosion {
+    height: 56px;
+    position: relative;
+    width: 56px;
+    .boxExplosion {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        width: 100%;
+        will-change: transform;
+        &.animate {
+            animation: explosion 1s;
+        }
+        i {
+            font-size: 36px;
+        }
+    }
+    @function rad($number) {
+        @return $number * 3.14159265359 / 180;
+    }
+    @function explosion($number, $radio) {
+        $angle: 360 / $number;
+        $text-shadow: '';
+        @for $i from 1 through $number {
+            @if $i % 4==0 {
+                $text-shadow: $text-shadow + $radio * cos(rad($angle * $i)) * 0.75 + ' ' + $radio * sin(rad($angle * $i)) * 0.75;
+            }
+            @else if $i % 3==0 {
+                $text-shadow: $text-shadow + $radio * cos(rad($angle * $i)) * 0.50 + ' ' + $radio * sin(rad($angle * $i)) * 0.50;
+            }
+            @else if $i % 2==0 {
+                $text-shadow: $text-shadow + $radio * cos(rad($angle * $i)) * 0.25 + ' ' + $radio * sin(rad($angle * $i)) * 0.25;
+            }
+            @else {
+                $text-shadow: $text-shadow + $radio * cos(rad($angle * $i)) + ' ' + $radio * sin(rad($angle * $i));
+            }
+            @if $i < $number {
+                $text-shadow: $text-shadow + ','
+            }
+        }
+        @return unquote($text-shadow);
+    }
+    @keyframes explosion {
+        to {
+            text-shadow: explosion(200, 500px);
+            transform: none;
+            color: transparent;
+        }
+    }
+}

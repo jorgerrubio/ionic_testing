@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BymeFabComponent } from './byme-fab/byme-fab';
+import { ButtonExplosionComponent } from './button-explosion/button-explosion';
 @NgModule({
-	declarations: [BymeFabComponent],
+	declarations: [
+		ButtonExplosionComponent,
+		BymeFabComponent
+	],
 	imports: [],
-	exports: [BymeFabComponent]
+	exports: [
+		ButtonExplosionComponent,
+		BymeFabComponent
+	]
 })
 export class ComponentsModule {}
