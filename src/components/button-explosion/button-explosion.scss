@@ -9,8 +9,11 @@ button-explosion {
         justify-content: center;
         width: 100%;
         will-change: transform;
-        &.animate {
-            animation: explosion 1s;
+        &.animateCircle {
+            animation: explosionCircle 1s;
+        }
+        &.animateParticle {
+            animation: explosionParticle 1s;
         }
         i {
             font-size: 36px;
@@ -41,9 +44,16 @@ button-explosion {
         }
         @return unquote($text-shadow);
     }
-    @keyframes explosion {
+    @keyframes explosionCircle {
         to {
             text-shadow: explosion(200, 500px);
+            transform: none;
+            color: transparent;
+        }
+    }
+    @keyframes explosionParticle {
+        to {
+            text-shadow: explosion(40, 200px);
             transform: none;
             color: transparent;
         }

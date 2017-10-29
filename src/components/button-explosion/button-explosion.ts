@@ -11,10 +11,16 @@ export class ButtonExplosionComponent {
 
 	htmlBoxStyles: StylesCss = new StylesCss();
 	htmlIconStyles: StylesCss = new StylesCss();
+	htmlBoxClass: string = 'animateCircle';
+
+	@Input('boxClass') set _boxClass (boxClass: string){
+		this.htmlBoxClass = boxClass;
+	}
 
 	@Input('boxColor') set _boxColor (boxColor: string){
 		this.htmlBoxStyles.color = boxColor;
 	}
+
 	@Input('iconColor') set _iconColor (iconColor: string){
 		this.htmlIconStyles.color = iconColor;
 	}
@@ -25,8 +31,10 @@ export class ButtonExplosionComponent {
 	}
 
 	explosion(box: HTMLElement) {
-		box.classList.add('animate');
-		box.addEventListener('animationend', () => box.classList.remove('animate'));
+		box.classList.add(this.htmlBoxClass);
+		box.addEventListener('animationend', () => {
+			box.classList.remove(this.htmlBoxClass);
+		});
 	}
 
 	getBoxStyles(){
